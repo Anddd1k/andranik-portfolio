@@ -63,3 +63,5 @@ These are public URLs, not secrets. With no domain configured, robots blocks ind
 ## Publication
 
 Use this folder for the separate `andranik-portfolio` repository. The demos have separate source roots in sibling folders. Vercel configuration is prepared, but no remote repository, push or deployment is performed without explicit owner confirmation. `QA.md` contains executed checks and limitations.
+
+The optional `developerProfileUrl` configuration is deliberately null; the And1k promotion uses the owner-confirmed app listing. Portfolio font subsets and their OFL license are bundled locally under `public/fonts/`.
