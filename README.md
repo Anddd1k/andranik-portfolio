@@ -2,6 +2,10 @@
 
 Existing dark portfolio extended to three detailed RU/EN case studies: SmokeReset, Brew & Co. and FlowDesk. The first is a published Android app; the other two are explicitly labelled independent Concept / Demo Projects.
 
+**Production:** [andranik-portfolio.vercel.app](https://andranik-portfolio.vercel.app) · [RU](https://andranik-portfolio.vercel.app/ru) · [EN](https://andranik-portfolio.vercel.app/en)
+
+**Demos:** [Brew & Co.](https://brew-co-demo.vercel.app) · [FlowDesk](https://flowdesk-demo-alpha.vercel.app)
+
 ## Local run
 
 Node.js 20.9+ is required; tested on Node.js 24.14.0.
@@ -37,6 +41,7 @@ data/projects.ts                descriptions, features, limitations, stacks and 
 data/translations.ts            main interface translations
 public/projects/                genuine running-site and Google Play screenshots
 scripts/verify.mjs              route/link/metadata smoke checks
+scripts/verify-production.mjs   HTTPS, indexability, canonical/hreflang and public URLs
 styles/globals.css              preserved dark design plus V2 cases
 ```
 
@@ -60,9 +65,21 @@ Brew & Co. and FlowDesk are fully functioning independent demos, with genuine br
 
 These are public URLs, not secrets. With no domain configured, robots blocks indexing and the sitemap stays empty. No production domain is fabricated.
 
+Vercel project: `anddd1ks-projects/andranik-portfolio`. Its Production configuration sets `NEXT_PUBLIC_SITE_URL=https://andranik-portfolio.vercel.app`. Rebuild after changing this variable: Next.js embeds the public URL at build time. Contacts remain unset and their buttons hidden.
+
+Production verification:
+
+```powershell
+$env:VERIFY_URL='https://andranik-portfolio.vercel.app'
+node scripts/verify.mjs
+node scripts/verify-production.mjs
+```
+
+The eight localized pages use self-referencing canonical URLs, RU/EN alternates and `index, follow`. `robots.txt` allows crawling and links to `/sitemap.xml`, which lists the eight public pages. These checks establish eligibility for indexing; actual search-engine inclusion and ranking are controlled by search engines.
+
 ## Publication
 
-Use this folder for the separate `andranik-portfolio` repository. The demos have separate source roots in sibling folders. The public GitHub repository and both demo deployments were created after explicit owner approval. The portfolio website itself has not been deployed. `QA.md` contains executed checks and limitations.
+Use this folder for the separate `andranik-portfolio` repository. The demos have separate source roots in sibling folders. All three public repositories and websites were published after explicit owner approval. `QA.md` contains executed checks and limitations. The existing Brew and FlowDesk deployments were not changed during the portfolio release.
 
 The optional `developerProfileUrl` configuration is deliberately null; the And1k promotion uses the owner-confirmed app listing. Portfolio font subsets and their OFL license are bundled locally under `public/fonts/`.
 
@@ -70,6 +87,6 @@ The optional `developerProfileUrl` configuration is deliberately null; the And1k
 
 Repository: https://github.com/Anddd1k/andranik-portfolio
 
-The portfolio source is public; the portfolio website itself has not been deployed. Both demo URLs and repository URLs are configured in lib/releases.ts. TypeScript, lint and production build are rechecked after integration.
+The portfolio source and website are public. Both demo URLs and repository URLs are configured in lib/releases.ts. TypeScript, lint, dependency audit, local and Vercel production builds passed. Public route/SEO checks cover eight RU/EN pages; responsive browser checks cover 390 and 320 px.
 
-Owner explicitly approved public repository creation and publication of the two demos. Before push, full Git history and exported tracked source were rescanned with Gitleaks: no findings. Ignore rules and upload manifests excluded environment files, dependency/build folders and signing material. No SmokeReset source is included. Earlier local QA below is retained as dated verification history.
+Owner explicitly approved public repository creation and publication of all three websites, including creation of the portfolio Vercel project. Before push, full Git history and exported tracked source were rescanned with Gitleaks: no findings. Ignore rules and upload manifests excluded environment files, dependency/build folders and signing material. No SmokeReset source is included. Earlier local QA is retained in QA.md as dated verification history.

@@ -1,5 +1,20 @@
 # Verification — 21 October 2026
 
+## Final portfolio production release
+
+Live: https://andranik-portfolio.vercel.app. Vercel project `anddd1ks-projects/andranik-portfolio`, deployment `dpl_BtkLMTG87pe2JCCysVx3BsSWjHyv`, READY / production. Production `NEXT_PUBLIC_SITE_URL` is `https://andranik-portfolio.vercel.app`; both local and Vercel builds used it. Contacts remain unset and hidden.
+
+- TypeScript, ESLint, production build and npm audit repeated successfully; audit reported zero known vulnerabilities.
+- Public `scripts/verify.mjs` passed eight localized pages, links/anchors, root redirect, not-found handling, metadata and assets.
+- `scripts/verify-production.mjs` passed HTTPS, canonical/hreflang on all eight RU/EN pages, index/follow, exact eight-entry sitemap, crawlable robots, working demo URLs, expected GitHub/Google Play links, hidden contacts and absence of loopback URLs.
+- Public HTTPS returns 200; HTTP redirects to HTTPS; HSTS is enabled; no X-Robots-Tag blocks indexing. Search-engine inclusion itself is external and has not been claimed or verified.
+- Production Lighthouse 13.5.0 SEO-only run: **100/100**, no run warnings. This is a new public-site measurement; the full local category scores below remain historical.
+- Browser: all three loaded project covers; mobile menu opens and closes on navigation; three RU case routes render; FlowDesk language switch preserves its case and reaches EN. No console errors or warnings. At viewport 390 px document width is 375; the EN case at 320 px has document width 305.
+- Full predeployment Git history scan: four commits, zero findings. Upload manifest excluded environment/local/build/dependency files. Final documentation history is rescanned before push.
+- Existing Brew and FlowDesk deployment IDs were compared before/after and remain unchanged.
+
+Production reports and screenshots accompany the release deliverable outside this source repository. Reproduce public checks with `VERIFY_URL=https://andranik-portfolio.vercel.app` and the two scripts. Physical-device and full manual screen-reader testing remain outside this verification.
+
 The original local verification precedes the owner-approved release. Current publication status and live checks are recorded at the end of this document.
 
 | Check | Result |

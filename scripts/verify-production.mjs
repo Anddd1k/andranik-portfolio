@@ -7,7 +7,7 @@ const origin = base.origin;
 const slugs = ['', '/projects/smokereset', '/projects/brew-co', '/projects/flowdesk'];
 const expected = ['ru', 'en'].flatMap(locale => slugs.map(slug => `${origin}/${locale}${slug}`));
 const external = new Set();
-const attr = (tag, name) => tag.match(new RegExp(`\\b${name}="([^"]*)"`))?.[1];
+const attr = (tag, name) => tag.match(new RegExp(`\\b${name}="([^"]*)"`, 'i'))?.[1];
 for (const url of expected) {
   const response = await fetch(url);
   assert.equal(response.status, 200, url);
