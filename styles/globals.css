@@ -2255,3 +2255,16 @@ body {
 
 .selected-v2 .project-card .project-cover{height:280px}
 @media(max-width:760px){.selected-v2 .project-card .project-cover{height:245px}.selected-v2 .project-card .project-cover.android{height:300px}}
+
+/* V3 public contacts */
+.contact-row { flex-wrap: wrap; gap: 12px; }
+.contact-row > a { flex: 1 1 190px; min-height: 44px; border-radius: 6px; }
+.contact-row > a:hover { color: #a9caff; }
+.contact-row small { font-size: 12px; }
+.contact-row .copy-email { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 12px; border: 1px solid #8ca9d540; border-radius: 8px; font-size: 12px; color: #c0d6f6; }
+.contact-row .copy-email:hover { background: #659eff18; border-color: #8ca9d5; }
+.contact-box .contact-feedback { min-height: 24px; margin-top: 12px; color: #b8d4ff; font-size: 13px; overflow-wrap: anywhere; }
+.footer > div { min-width: 0; }
+.footer-contacts { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 9px; font-size: 12px; color: #acbdd7; }
+.footer-contacts a { display: inline-flex; align-items: center; min-height: 44px; overflow-wrap: anywhere; max-width: 100%; }
+@media (max-width: 760px) { .footer > div { flex-basis: 100%; } }

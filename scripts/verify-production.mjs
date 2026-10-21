@@ -14,6 +14,9 @@ for (const url of expected) {
   assert.equal(response.url, url, 'Canonical route should not redirect');
   assert.doesNotMatch(response.headers.get('x-robots-tag') || '', /noindex|nofollow/i);
   const html = await response.text();
+  assert.ok(html.includes('href="mailto:andharut2000@gmail.com"'), `${url}: email contact`);
+  assert.ok(html.includes('href="https://t.me/Anddd1kk"'), `${url}: Telegram contact`);
+  assert.doesNotMatch(html, /<form\b/i, 'No server-backed contact form');
   assert.doesNotMatch(html, /https?:\/\/(?:localhost|127\.0\.0\.1|\[::1\])(?=[:/"\s])/i, 'No loopback URLs');
   const tags = html.match(/<(?:link|meta)\b[^>]*>/g) || [];
   const canonical = tags.find(tag => attr(tag, 'rel') === 'canonical');
@@ -31,7 +34,9 @@ for (const url of expected) {
   assert.equal((html.match(/<h1[ >]/g) || []).length, 1);
   for (const [, href] of html.matchAll(/<a\b[^>]*href="([^"]+)"/g)) {
     assert.notEqual(href, '#', 'No placeholder links');
-    assert.doesNotMatch(href, /^(?:javascript:|mailto:|https?:\/\/(?:t\.me|telegram\.me)\/)/i, 'Unconfigured contacts remain hidden');
+    assert.doesNotMatch(href, /^(?:javascript:|tel:)/i, 'No unsafe or unapproved phone links');
+    if (href.startsWith('mailto:')) assert.equal(href, 'mailto:andharut2000@gmail.com');
+    if (/^https?:\/\/(?:t\.me|telegram\.me)\//i.test(href)) assert.equal(href, 'https://t.me/Anddd1kk');
     const target = new URL(href.replaceAll('&amp;', '&'), origin);
     if (target.origin !== origin) external.add(target.href);
   }
@@ -53,8 +58,10 @@ for (const url of [
   'https://github.com/Anddd1k/brew-co-demo',
   'https://github.com/Anddd1k/flowdesk-demo',
   'https://play.google.com/store/apps/details?id=com.smokereset.app',
+  'https://t.me/Anddd1kk',
+  'mailto:andharut2000@gmail.com',
 ]) assert.ok(external.has(url), `Missing public link: ${url}`);
 for (const url of ['https://brew-co-demo.vercel.app/', 'https://flowdesk-demo-alpha.vercel.app/']) {
   assert.equal((await fetch(url)).status, 200, 'Live demo reachable');
 }
-console.log(`PASS: ${expected.length} HTTPS pages, canonical/hreflang, index/follow, sitemap, robots, public links, hidden contacts and no loopback URLs.`);
+console.log(`PASS: ${expected.length} HTTPS pages, canonical/hreflang, index/follow, sitemap, robots, public links, approved contacts and no loopback URLs.`);

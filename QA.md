@@ -1,5 +1,11 @@
 # Verification — 21 October 2026
 
+## V3 contacts release
+
+Owner-approved public Telegram and email replace the previous hidden-contact state. Both header and hero primary CTAs point to https://t.me/Anddd1kk. Contact/footer/mobile navigation use this URL and mailto:andharut2000@gmail.com. No phone number or server form was introduced. The production verifier now expects these exact approved contacts on all eight localized pages.
+
+Local TypeScript, ESLint, production build, eight-page HTTP smoke and dependency audit passed (zero known vulnerabilities). Browser checks verified RU/EN copy feedback, actual clipboard contents, Enter/Space activation, visible keyboard focus, a 44 px minimum copy target, mobile contacts, Escape/focus restoration and no 320 px document overflow. The Telegram public contact page was opened without sending a message. Final public deployment verification is recorded in the accompanying V3 release report; earlier sections below are historical and describe the previous hidden-contact state.
+
 ## Final portfolio production release
 
 Live: https://andranik-portfolio.vercel.app. Vercel project `anddd1ks-projects/andranik-portfolio`, deployment `dpl_BtkLMTG87pe2JCCysVx3BsSWjHyv`, READY / production. Production `NEXT_PUBLIC_SITE_URL` is `https://andranik-portfolio.vercel.app`; both local and Vercel builds used it. Contacts remain unset and hidden.

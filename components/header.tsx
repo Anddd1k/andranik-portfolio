@@ -3,7 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
-import type { Locale } from "@/lib/site";
+import { site, type Locale } from "@/lib/site";
 import { translations } from "@/data/translations";
 const ids = ["services", "projects", "about", "process"];
 export function Header({ locale }: { locale: Locale }) {
@@ -71,10 +71,10 @@ export function Header({ locale }: { locale: Locale }) {
               <span className="divider">/</span>
               <span className={locale === "en" ? "selected" : ""}>EN</span>
             </Link>
-            <Link className="nav-cta" href={`/${locale}#contact`}>
+            <a className="nav-cta" href={site.contacts.telegram} target="_blank" rel="noreferrer">
               {t.talk}
               <ArrowUpRight size={15} />
-            </Link>
+            </a>
             <button
               ref={toggle}
               className="menu-toggle"
@@ -105,10 +105,14 @@ export function Header({ locale }: { locale: Locale }) {
                 <ArrowUpRight size={18} />
               </Link>
             ))}
-            <Link onClick={() => setOpen(false)} href={`/${locale}#contact`}>
-              {t.talk}
+            <a onClick={() => setOpen(false)} href={site.contacts.telegram} target="_blank" rel="noreferrer">
+              {t.talk} · Telegram
               <ArrowUpRight size={18} />
-            </Link>
+            </a>
+            <a onClick={() => setOpen(false)} href={`mailto:${site.contacts.email}`}>
+              Email
+              <ArrowUpRight size={18} />
+            </a>
           </nav>
         )}
       </header>

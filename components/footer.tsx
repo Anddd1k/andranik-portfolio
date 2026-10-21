@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import type { Locale } from "@/lib/site";
+import { site, type Locale } from "@/lib/site";
 import { translations } from "@/data/translations";
 export function Footer({ locale }: { locale: Locale }) {
   const t = translations[locale];
@@ -11,6 +11,10 @@ export function Footer({ locale }: { locale: Locale }) {
           Andranik Harutyunyan<span className="blue">.</span>
         </span>
         <p>{t.footer}</p>
+        <nav className="footer-contacts" aria-label={locale === "ru" ? "Контакты" : "Contact links"}>
+          <a href={site.contacts.telegram} target="_blank" rel="noreferrer">Telegram</a>
+          <a href={`mailto:${site.contacts.email}`}>{site.contacts.email}</a>
+        </nav>
       </div>
       <span className="copyright">
         © {new Date().getFullYear()} · {t.rights}

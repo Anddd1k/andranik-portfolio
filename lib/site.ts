@@ -1,11 +1,11 @@
 export const site = {
   name: "Andranik Harutyunyan",
   url: process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, ""),
-  // Replace null with verified values. Only configured contacts are rendered.
+  // Public contacts explicitly provided and approved by the owner.
   contacts: {
-    telegram: null as string | null,
+    telegram: "https://t.me/Anddd1kk",
     github: null as string | null,
-    email: null as string | null,
+    email: "andharut2000@gmail.com",
   },
 };
 export type Locale = "ru" | "en";

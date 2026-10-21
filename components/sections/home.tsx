@@ -10,7 +10,7 @@ import {
   Sparkles,
   Braces,
 } from "lucide-react";
-import type { Locale } from "@/lib/site";
+import { site, type Locale } from "@/lib/site";
 import { translations } from "@/data/translations";
 import { Reveal } from "@/components/ui/reveal";
 import { SolutionVisual } from "@/components/ui/solution-visual";
@@ -37,10 +37,10 @@ export function Home({ locale }: { locale: Locale }) {
           </h1>
           <p className="hero-sub">{t.sub}</p>
           <div className="hero-actions">
-            <Link href="#contact" className="button primary">
+            <a href={site.contacts.telegram} className="button primary" target="_blank" rel="noreferrer">
               {t.talk}
               <ArrowUpRight size={18} />
-            </Link>
+            </a>
             <Link href="#projects" className="button secondary">
               {t.work}
               <ArrowDown size={17} />

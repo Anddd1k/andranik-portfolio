@@ -1,4 +1,4 @@
-# Andranik Harutyunyan — Developer / Portfolio V2
+# Andranik Harutyunyan — Developer / Portfolio V3
 
 Existing dark portfolio extended to three detailed RU/EN case studies: SmokeReset, Brew & Co. and FlowDesk. The first is a published Android app; the other two are explicitly labelled independent Concept / Demo Projects.
 
@@ -55,7 +55,7 @@ Brew & Co. and FlowDesk are fully functioning independent demos, with genuine br
 
 ## Configuration
 
-`lib/site.ts` keeps Telegram/GitHub/email as `null` until the owner provides real contact details. Populated contacts get external links and copy buttons. No fake form is included.
+`lib/site.ts` centralizes the owner-approved public contacts: [Telegram @Anddd1kk](https://t.me/Anddd1kk) and [andharut2000@gmail.com](mailto:andharut2000@gmail.com). The primary CTA opens Telegram; Contact, footer and mobile navigation expose both channels. Email has a keyboard-accessible copy button with visible RU/EN feedback and a live status announcement. The optional contact GitHub remains unset. No phone number, server form or automatic message submission is included.
 
 `.env.example` lists optional public variables:
 
@@ -65,7 +65,7 @@ Brew & Co. and FlowDesk are fully functioning independent demos, with genuine br
 
 These are public URLs, not secrets. With no domain configured, robots blocks indexing and the sitemap stays empty. No production domain is fabricated.
 
-Vercel project: `anddd1ks-projects/andranik-portfolio`. Its Production configuration sets `NEXT_PUBLIC_SITE_URL=https://andranik-portfolio.vercel.app`. Rebuild after changing this variable: Next.js embeds the public URL at build time. Contacts remain unset and their buttons hidden.
+Vercel project: `anddd1ks-projects/andranik-portfolio`. Its Production configuration sets `NEXT_PUBLIC_SITE_URL=https://andranik-portfolio.vercel.app`. Rebuild after changing this variable: Next.js embeds the public URL at build time. Only the two owner-approved contact channels are published.
 
 Production verification:
 
