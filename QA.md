@@ -1,6 +1,6 @@
 # Verification — 21 October 2026
 
-Local production build; no public repository or deployment has been created.
+The original local verification precedes the owner-approved release. Current publication status and live checks are recorded at the end of this document.
 
 | Check | Result |
 |---|---|
@@ -47,3 +47,11 @@ node scripts/verify.mjs
 ```
 
 Use npm.cmd on Windows PowerShell when needed. Gitleaks reports are redacted. Ignore rules and the tracked-file audit exclude environment files, signing material, dependencies, builds and private app code.
+
+## Approved public release — 21 October 2026
+
+Repository: https://github.com/Anddd1k/andranik-portfolio
+
+The portfolio source is public; the portfolio website itself has not been deployed. Both demo URLs and repository URLs are configured in lib/releases.ts. TypeScript, lint and production build are rechecked after integration.
+
+Owner explicitly approved public repository creation and publication of the two demos. Before push, full Git history and exported tracked source were rescanned with Gitleaks: no findings. Ignore rules and upload manifests excluded environment files, dependency/build folders and signing material. No SmokeReset source is included. Earlier local QA below is retained as dated verification history.

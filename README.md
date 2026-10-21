@@ -46,7 +46,7 @@ SmokeReset: `com.smokereset.app`, published by And1k. The Google Play URL is con
 
 Only the public description and public Google Play screenshots are included. SmokeReset source, signing keys and private materials are not present. The compact And1k section links to the confirmed SmokeReset listing as requested by the owner.
 
-Brew & Co. and FlowDesk are fully functioning independent demos, with genuine browser screenshots. Their public GitHub/Live Demo fields remain empty until approved publication; missing links are hidden. Loopback links are for local review and are not public deployments. See `PUBLIC_ASSETS.md` for screenshot provenance.
+Brew & Co. and FlowDesk are fully functioning independent demos, with genuine browser screenshots. Their verified public GitHub and Live Demo URLs are configured in lib/releases.ts after the owner-approved release. Optional environment variables override these defaults. See `PUBLIC_ASSETS.md` for screenshot provenance.
 
 ## Configuration
 
@@ -62,6 +62,14 @@ These are public URLs, not secrets. With no domain configured, robots blocks ind
 
 ## Publication
 
-Use this folder for the separate `andranik-portfolio` repository. The demos have separate source roots in sibling folders. Vercel configuration is prepared, but no remote repository, push or deployment is performed without explicit owner confirmation. `QA.md` contains executed checks and limitations.
+Use this folder for the separate `andranik-portfolio` repository. The demos have separate source roots in sibling folders. The public GitHub repository and both demo deployments were created after explicit owner approval. The portfolio website itself has not been deployed. `QA.md` contains executed checks and limitations.
 
 The optional `developerProfileUrl` configuration is deliberately null; the And1k promotion uses the owner-confirmed app listing. Portfolio font subsets and their OFL license are bundled locally under `public/fonts/`.
+
+## Approved public release — 21 October 2026
+
+Repository: https://github.com/Anddd1k/andranik-portfolio
+
+The portfolio source is public; the portfolio website itself has not been deployed. Both demo URLs and repository URLs are configured in lib/releases.ts. TypeScript, lint and production build are rechecked after integration.
+
+Owner explicitly approved public repository creation and publication of the two demos. Before push, full Git history and exported tracked source were rescanned with Gitleaks: no findings. Ignore rules and upload manifests excluded environment files, dependency/build folders and signing material. No SmokeReset source is included. Earlier local QA below is retained as dated verification history.

@@ -1,4 +1,4 @@
-// Public links only. Never put credentials here. Unpublished links remain undefined.
+// Public links only. Defaults were verified after the approved production release.
 function publicUrl(value: string | undefined) {
   if (!value) return undefined;
   try {
@@ -23,11 +23,11 @@ export const releases = {
     developerProfileUrl: null as string | null,
   },
   brew: {
-    demo: publicUrl(process.env.NEXT_PUBLIC_BREW_DEMO_URL),
-    github: publicUrl(process.env.NEXT_PUBLIC_BREW_GITHUB_URL),
+    demo: publicUrl(process.env.NEXT_PUBLIC_BREW_DEMO_URL ?? "https://brew-co-demo.vercel.app"),
+    github: publicUrl(process.env.NEXT_PUBLIC_BREW_GITHUB_URL ?? "https://github.com/Anddd1k/brew-co-demo"),
   },
   flowdesk: {
-    demo: publicUrl(process.env.NEXT_PUBLIC_FLOWDESK_DEMO_URL),
-    github: publicUrl(process.env.NEXT_PUBLIC_FLOWDESK_GITHUB_URL),
+    demo: publicUrl(process.env.NEXT_PUBLIC_FLOWDESK_DEMO_URL ?? "https://flowdesk-demo-alpha.vercel.app"),
+    github: publicUrl(process.env.NEXT_PUBLIC_FLOWDESK_GITHUB_URL ?? "https://github.com/Anddd1k/flowdesk-demo"),
   },
 };
